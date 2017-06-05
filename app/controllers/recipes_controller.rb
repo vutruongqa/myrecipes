@@ -9,11 +9,18 @@ class RecipesController < ApplicationController
   end
 
   def create
-
+    @recipe = Recipe.new(recipe_params)
+    @recipe.chef = Chef.first
+    if @recipe.save
+      flash[:success] = "Recipe has created successfully!"
+      redirect_to recipe_path(@recipe)
+    else
+      render 'new'
+    end
   end
 
   def show
-
+    @recipe = Recipe.find(params[:id])
   end
 
   def edit
@@ -30,6 +37,6 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-
+    params.require(:recipe).permit(:name, :description)
   end
 end
