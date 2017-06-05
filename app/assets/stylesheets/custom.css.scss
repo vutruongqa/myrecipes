@@ -13,13 +13,13 @@ $navbar-default-bg: #073B15;
   height: 300px;
 }
 
-#logo{
+#logo {
   float: left;
   font-size: 1.7em;
-  color:#fff;
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;
-  font-weight:bold;
+  font-weight: bold;
 }
 
 #logo:hover {
@@ -58,9 +58,11 @@ $navbar-default-bg: #073B15;
   margin: 0;
   padding: 20px 0;
 }
+
 .footer_dv {
   width: 100%;
 }
+
 .footer_dv h4 {
   color: #fcab0e;
   font-family: roboto;
@@ -68,21 +70,25 @@ $navbar-default-bg: #073B15;
   margin-bottom: 30px;
   text-transform: uppercase;
 }
+
 .footer_dv ul {
   list-style: outside none none;
   margin: 0;
   padding: 0;
 }
+
 .footer_dv ul li:first-child {
   border-top: medium none;
   box-shadow: none;
 }
+
 .footer_dv ul li {
   border-top: 1px solid #000;
   box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.2);
   color: #f1f2f2;
   padding: 5px 0;
 }
+
 .footer_dv p {
   color: #fff;
   font-size: 14px;
@@ -91,25 +97,36 @@ $navbar-default-bg: #073B15;
   text-align: justify;
 }
 
-.description{
+.description {
   margin-top: 0;
 }
 
 .well a {
-  color:#073B15;
+  color: #073B15;
 }
 
-.chef_info{
+.chef_info {
   margin-top: 10px;
 }
 
-.colormatch a{
-  color:#073B15;
+.colormatch a {
+  color: #073B15;
 }
 
-.recipe-actions{
+.recipe-actions {
   padding-top: 5px;
-  a{
+  a {
     color: #fff;
   }
+}
+
+.listing {
+  list-style: none;
+  padding-left: 0;
+}
+
+.chef-title {
+  color: #073B15;
+  font-weight: bold;
+  font-size: 1.25em;
 }
