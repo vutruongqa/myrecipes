@@ -1,4 +1,4 @@
-<%=render 'shared/page_title', title: @recipe.name.capitalize %>
+<%= render 'shared/page_title', title: @recipe.name.capitalize %>
 <div class="well col-md-8 col-md-offset-2">
   <h4 class="center description"><strong>Description: </strong></h4>
   <hr/>
@@ -13,14 +13,17 @@
     </p>
     <p class="center">
       <small><%= @recipe.chef.chefname.capitalize %></small>
-      <div class="pull-right">Created <%= time_ago_in_words(@recipe.created_at) %> ago </div>
+    <div class="pull-right">Created <%= time_ago_in_words(@recipe.created_at) %> ago</div>
     </p>
   </div>
   <div class="recipe-actions">
-    <%= link_to "Edit recipe", edit_recipe_path(@recipe), class:"btn btn-xs btn-warning" %>
-    <%= link_to "Delete recipe", recipe_path(@recipe),method: :delete,
-                                                      data:{confirm: "Are you sure you want to delete this recipe?"},
-                                                      class:"btn btn-xs btn-danger" %>
-    <%= link_to "Return to all recipes page", recipes_path, class:"btn btn-xs btn-primary" %>
+    <% if logged_in? %>
+        <%= link_to "Edit recipe", edit_recipe_path(@recipe), class: "btn btn-xs btn-warning" %>
+        <%= link_to "Delete recipe", recipe_path(@recipe), method: :delete,
+                    data: {confirm: "Are you sure you want to delete this recipe?"},
+                    class: "btn btn-xs btn-danger" %>
+    <% end %>
+    <%= link_to "Return to all recipes page", recipes_path, class: "btn btn-xs btn-primary" %>
+
   </div>
 </div>
