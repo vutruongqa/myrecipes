@@ -18,7 +18,9 @@
         <p>
           <span class="quiet">
             <small>Created <%= time_ago_in_words(recipe.created_at) %>
-              ago by <%= recipe.chef.chefname.capitalize %> </small>
+              ago by <%= recipe.chef.chefname.capitalize %>
+              | <%= pluralize(recipe.comments.count, 'comment')%>
+            </small>
           </span>
         </p>
 
