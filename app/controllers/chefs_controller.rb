@@ -15,8 +15,9 @@ class ChefsController < ApplicationController
   def create
     @chef = Chef.new(chef_params)
     if @chef.save
-      #login after creating account successfully
+      #assign chef_id to cookie and session after creating account successfully
       session[:chef_id] = @chef.id
+      cookies.signed[:chef_id] = @chef.id
       flash[:success] = "Welcome #{@chef.chefname} to MyRecipes application!"
       redirect_to chef_path(@chef)
     else

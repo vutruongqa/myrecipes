@@ -18,5 +18,7 @@ Rails.application.routes.draw do
 
   resources :ingredients, except: [:destroy]
 
+  mount ActionCable.server => '/cable'
+
 end
 
