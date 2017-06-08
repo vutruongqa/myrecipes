@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
       redirect_to recipe_path(@recipe)
     else
       flash[:danger] = "Comment was not created"
-      render 'recipes/show'
+      redirect_to :back
     end
   end
 
