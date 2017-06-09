@@ -5,8 +5,8 @@
         <div class="footer_dv">
           <h4>AUTOMATION</h4>
           <ul>
-            <li><a href="#">Selenium C#</a></li>
-            <li><a href="#">Ruby cucumber</a></li>
+            <li><%= link_to "Selenium C#", ingredient_path(Ingredient.find_by(name:"CSharp")) %></li>
+            <li><%= link_to "Ruby cucumber", ingredient_path(Ingredient.find_by(name:"Ruby cucumber")) %></li>
           </ul>
         </div>
       </div>
@@ -14,8 +14,8 @@
         <div class="footer_dv">
           <h4>TESTING</h4>
           <ul>
-            <li><a href="#">Api testing</a></li>
-            <li><a href="#">General testing knowledge</a></li>
+            <li><%= link_to "Api testing", ingredient_path(Ingredient.find_by(name:"Api testing").nil? ? Ingredient.first : Ingredient.find_by(name:"Api testing")) %></li>
+            <li><%= link_to "General testing knowledge", ingredient_path(Ingredient.find_by(name:"General testing knowledge").nil? ? Ingredient.first : Ingredient.find_by(name:"General testing knowledge")) %></li>
           </ul>
         </div>
       </div>
