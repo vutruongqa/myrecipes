@@ -5,7 +5,11 @@ class RecipesController < ApplicationController
   before_action :require_user_like, only: [:like]
 
   def index
-    @recipes = Recipe.paginate(page: params[:page], per_page: 5)
+    if params[:search]
+      @recipes = Recipe.search(params[:search]).paginate(page: params[:page], per_page: 5)
+    else
+      @recipes = Recipe.paginate(page: params[:page], per_page: 5)
+    end
   end
 
   def new
@@ -81,5 +85,7 @@ class RecipesController < ApplicationController
       redirect_to :back
     end
   end
+
+
 
 end

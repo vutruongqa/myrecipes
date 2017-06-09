@@ -17,4 +17,8 @@ class Recipe < ApplicationRecord
     self.likes.where(like: false).size
   end
 
+  def self.search(search)
+    where("name LIKE ?", "%#{search}%")
+  end
+
 end

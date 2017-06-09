@@ -4,7 +4,16 @@
   <%= will_paginate %>
 </div>
 
-<%= render 'recipe', obj: @recipes %>
+<% if @recipes.count == 0 %>
+    <div align="center">
+      <h2>There is no topics</h2>
+      <%= link_to "Return all topics", recipes_path %>
+    </div>
+<% else %>
+    <%= render 'recipe', obj: @recipes %>
+<% end %>
+
+
 
 <div align="center">
   <%= will_paginate %>
