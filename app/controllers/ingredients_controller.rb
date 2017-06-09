@@ -17,7 +17,7 @@ class IngredientsController < ApplicationController
   def create
     @ingredient = Ingredient.new(ingredient_params)
     if @ingredient.save
-      flash[:success] = "Create ingredient successfully"
+      flash[:success] = "Create language successfully"
       redirect_to ingredient_path(@ingredient)
     else
       render 'new'
@@ -30,7 +30,7 @@ class IngredientsController < ApplicationController
 
   def update
     if @ingredient.update(ingredient_params)
-      flash[:success] = "Update ingredient successfully"
+      flash[:success] = "Update language successfully"
       redirect_to ingredient_path(@ingredient)
     else
       render 'edit'

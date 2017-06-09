@@ -1,4 +1,4 @@
-<%= render 'shared/page_title', title: "Available ingredients" %>
+<%= render 'shared/page_title', title: "Available languages" %>
 
 <div align="center">
   <%= will_paginate %>
@@ -16,7 +16,7 @@
             </li>
             <% if logged_in? && current_chef.admin? %>
                 <li>
-                  <%= link_to "Edit this ingredient", edit_ingredient_path(ing) %>
+                  <%= link_to "Edit this language", edit_ingredient_path(ing) %>
                 </li>
             <% end %>
           </div>
