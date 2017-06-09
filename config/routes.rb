@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   #nested route
   resources :recipes do
     resources :comments, only: [:create]
+    member do
+      post 'like'
+    end
   end
 
   get '/signup', to: 'chefs#new'
@@ -18,7 +21,7 @@ Rails.application.routes.draw do
 
   resources :ingredients, except: [:destroy]
 
-  mount ActionCable.server => '/cable'
+  #mount ActionCable.server => '/cable'
 
   get '/chat', to: 'chatrooms#show'
 
