@@ -5,15 +5,17 @@
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'typeahead.js' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
 </head>
 
 <body>
 <%= render 'layouts/navigation' %>
 <%= render 'layouts/message' %>
 <div class="container">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= yield %>
 </div>
 <%= render 'layouts/footer' %>
+
 </body>
 </html>

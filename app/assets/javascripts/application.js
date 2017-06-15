@@ -24,22 +24,26 @@ function scrollToBottom(){
     }
 }
 
+// var id_numbers = new Array();
 // $.ajax({
-//     type:"GET",
-//     url:"recipes",
-//     dataType:"json",
-//     success:function(result){
-//         debugger
+//     type: "GET",
+//     url: '/recipes/autocomplete',
+//     dataType: "json",
+//     success: function (data) {
+//         for (var i = 0; i < data.length; i++) {
+//             id_numbers.push(data[i].name)
+//         }
+//         autosuggestion(id_numbers);
 //     }
-// })
+// });
 
 
-var id_numbers = new Array();
 $(document).ready(function(){
     scrollToBottom();
 });
 
 $(function(){
+    var id_numbers = new Array();
     $.ajax({
         type: "GET",
         url: '/recipes/autocomplete',
@@ -53,7 +57,20 @@ $(function(){
     });
 });
 
-
+// window.onload = function autoload(){
+//     var id_numbers = new Array();
+//     $.ajax({
+//         type: "GET",
+//         url: '/recipes/autocomplete',
+//         dataType: "json",
+//         success: function (data) {
+//             for (var i = 0; i < data.length; i++) {
+//                 id_numbers.push(data[i].name)
+//             }
+//             autosuggestion(id_numbers);
+//         }
+//     });
+// }
 
 // $(document).on('change','#the-basics .typeahead', function() {
 //     /* This will be fired every time, when textbox's value changes. */
