@@ -33,10 +33,10 @@ var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
 
 
 var autosuggestion = function(input){
-    // if (input == "")
-    // {
-    //     input = states
-    // }
+     if (input == "")
+     {
+         input = states
+     }
     $('#the-basics .typeahead').typeahead({
             hint: true,
             highlight: true,
