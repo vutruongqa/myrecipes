@@ -37,24 +37,22 @@ function scrollToBottom(){
 
 $(document).ready(function(){
     scrollToBottom();
-    $(document).on('change','#the-basics .typeahead', function() {
-        /* This will be fired every time, when textbox's value changes. */
-        if ($('#the-basics .typeahead').val().length > 2) {
-            var id_numbers = new Array();
-            $.ajax({
-                type: "GET",
-                url: '/recipes/autocomplete',
-                dataType: "json",
-                success: function (data) {
-                    for (var i = 0; i < data.length; i++) {
-                        id_numbers.push(data[i].name)
-                    }
-                }
-            });
-            autosuggestion(id_numbers);
-        }
-    } );
-
 });
-
+$(document).on('change','#the-basics .typeahead', function() {
+    /* This will be fired every time, when textbox's value changes. */
+    if ($('#the-basics .typeahead').val().length > 2) {
+        var id_numbers = new Array();
+        $.ajax({
+            type: "GET",
+            url: '/recipes/autocomplete',
+            dataType: "json",
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    id_numbers.push(data[i].name)
+                }
+            }
+        });
+        autosuggestion(id_numbers);
+    }
+} );
 
