@@ -657,7 +657,7 @@
                 identify: _.stringify,
                 datumTokenizer: null,
                 queryTokenizer: null,
-                sufficient: 5,
+                sufficient: 10,
                 sorter: null,
                 local: [],
                 prefetch: null,
