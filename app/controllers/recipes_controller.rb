@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
   end
 
   def autocomplete
-    @recipes = Recipe.search(params[:search]).paginate(page: params[:page], per_page: 5)
+    @recipes = Recipe.search(params[:search]).paginate(page: params[:page], per_page: 20)
     respond_to do |format|
       format.js { render json: @recipes }  # respond with the created JSON object
     end
