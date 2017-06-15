@@ -177,9 +177,14 @@ $navbar-default-bg: #073B15;
   padding-right: 10px;
 }
 
+.typeahead{
+  width:380px;
+}
+
 .tt-menu{
   color: white;
   z-index: 1000;
   background: black;
   opacity: 0.8;
+  width: 100%
 }
