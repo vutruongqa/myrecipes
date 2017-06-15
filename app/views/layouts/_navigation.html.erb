@@ -43,7 +43,10 @@
 
       <%= form_tag(recipes_path, :method => "get",class:"navbar-form navbar-left", id: "search-form") do %>
           <div class="form-group">
-          <%= text_field_tag :search, params[:search],class: "form-control", placeholder: "Search Recipes" %>
+            <div id="the-basics">
+              <!--<input class="typeahead" type="text" placeholder="States of USA">-->
+              <%= text_field_tag :search, params[:search],class: "typeahead", placeholder: "Search topics" %>
+            </div>
           </div>
           <%= submit_tag "Search",class: "btn btn-default", :name => nil %>
       <% end %>

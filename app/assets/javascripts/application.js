@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require custom
+//= require typeahead.js
 //= require_tree .
 
 function scrollToBottom(){
@@ -22,6 +24,37 @@ function scrollToBottom(){
     }
 }
 
+// $.ajax({
+//     type:"GET",
+//     url:"recipes",
+//     dataType:"json",
+//     success:function(result){
+//         debugger
+//     }
+// })
+
+
+
 $(document).ready(function(){
     scrollToBottom();
-})
+    $('#the-basics .typeahead').change(function() {
+        /* This will be fired every time, when textbox's value changes. */
+        if ($('#the-basics .typeahead').val().length > 2) {
+            var id_numbers = new Array();
+            $.ajax({
+                type: "GET",
+                url: '/recipes/autocomplete',
+                dataType: "json",
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        id_numbers.push(data[i].name)
+                    }
+                }
+            });
+            autosuggestion(id_numbers);
+        }
+    } );
+
+});
+
+
