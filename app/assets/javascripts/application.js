@@ -15,49 +15,20 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require custom
-//= require typeahead.js
+//= require typeahead
 //= require_tree .
 
-function scrollToBottom(){
-    if($('#messages').length > 0){
-        $('#messages').scrollTop($('#messages')[0].scrollHeight);
-    }
-}
-
-// var id_numbers = new Array();
-// $.ajax({
-//     type: "GET",
-//     url: '/recipes/autocomplete',
-//     dataType: "json",
-//     success: function (data) {
-//         for (var i = 0; i < data.length; i++) {
-//             id_numbers.push(data[i].name)
-//         }
-//         autosuggestion(id_numbers);
+// function scrollToBottom(){
+//     if($('#messages').length > 0){
+//         $('#messages').scrollTop($('#messages')[0].scrollHeight);
 //     }
+// }
+//
+// $(document).ready(function(){
+//     scrollToBottom();
 // });
 
-
-$(document).ready(function(){
-    scrollToBottom();
-});
-
-$(function(){
-    var id_numbers = new Array();
-    $.ajax({
-        type: "GET",
-        url: '/recipes/autocomplete',
-        dataType: "json",
-        success: function (data) {
-            for (var i = 0; i < data.length; i++) {
-                id_numbers.push(data[i].name)
-            }
-            autosuggestion(id_numbers);
-        }
-    });
-});
-
-// window.onload = function autoload(){
+// $(function(){
 //     var id_numbers = new Array();
 //     $.ajax({
 //         type: "GET",
@@ -70,25 +41,24 @@ $(function(){
 //             autosuggestion(id_numbers);
 //         }
 //     });
-// }
-
-// $(document).on('change','#the-basics .typeahead', function() {
-//     /* This will be fired every time, when textbox's value changes. */
-//     var id_numbers = new Array();
-//     if ($('#the-basics .typeahead').val().length > 2) {
-//         $.ajax({
-//             type: "GET",
-//             url: '/recipes/autocomplete',
-//             dataType: "json",
-//             success: function (data) {
-//                 for (var i = 0; i < data.length; i++) {
-//                     id_numbers.push(data[i].name)
-//                 }
-//                 //autosuggestion(id_numbers);
-//             }
-//         });
-//
-//     }
-//
 // });
+
+$(function(){
+    if (window.recipe_page == undefined && window.recipe_page == undefined && window.data==undefined) {
+        var id_numbers = new Array();
+        $.ajax({
+            type: "GET",
+            url: '/recipes/autocomplete',
+            dataType: "json",
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    id_numbers.push(data[i].name)
+                }
+                window.recipe_page = true;
+                window.data = id_numbers;
+                autosuggestion(window.data);
+            }
+        });
+    }
+});
 

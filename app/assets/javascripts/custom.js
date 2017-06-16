@@ -47,13 +47,3 @@ var autosuggestion = function(input){
             source: substringMatcher(input)
         });
 };
-
-// $('#the-basics .typeahead').typeahead({
-//   hint: true,
-//   highlight: true,
-//   minLength: 1
-// },
-// {
-//   name: 'states',
-//   source: substringMatcher(states)
-// });
